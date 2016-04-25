@@ -26,7 +26,26 @@ export default (releaseId, command) => {
         console.log(t.toString());
       }
     });
-  } else {
+  } else if (!releaseId && command.search) {
+      console.log('getting features that match the following term:', command.search)
+      aha.send({
+        apiUrl: `/features?q=${command.search}`,
+        renderer: (body) => {
+          const data = body.features;
+
+          const t = new Table;
+
+          data.forEach((feature) => {
+            t.cell('Ref', feature.reference_num)
+            t.cell('Name', feature.name)
+            t.newRow()
+          })
+
+          console.log(t.toString());
+        }
+      });
+    } else {
+
     console.log('Requesting features for', releaseId);
 
     // Lookuip release id

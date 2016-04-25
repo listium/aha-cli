@@ -1,6 +1,6 @@
 {
   "name": "aha-cli",
-  "version": "1.0.8",
+  "version": "1.0.12",
   "description": "",
   "main": "./dist/index.js",
   "bin": {

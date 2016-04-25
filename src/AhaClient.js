@@ -17,7 +17,7 @@ export default class AhaClient {
 
     const requestType = method;
 
-    if(true) {
+    if(process.env.DEBUG) {
       console.log('URL', apiUrl);
       console.log('METHOD', requestType);
       console.log('BODY', data);
