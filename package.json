@@ -1,0 +1,34 @@
+{
+  "name": "aha-cli",
+  "version": "1.0.8",
+  "description": "",
+  "main": "./dist/index.js",
+  "bin": {
+    "aha": "./dist/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src --presets babel-preset-es2015 --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/listium/aha-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/listium/aha-client/issues"
+  },
+  "homepage": "https://github.com/listium/aha-client",
+  "devDependencies": {
+    "babel-cli": "^6.7.7",
+    "babel-core": "^6.7.7",
+    "babel-preset-es2015": "^6.6.0"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "easy-table": "^1.0.0",
+    "pwuid": "^1.1.1",
+    "superagent": "^1.8.3"
+  }
+}
