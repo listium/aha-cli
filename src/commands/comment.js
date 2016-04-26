@@ -1,5 +1,5 @@
 import AhaClient from '../AhaClient';
-import {getUsername} from './login';
+import {getUsername, getDefaultPrefix} from './login';
 
 export default (featureId, comment) => {
 
@@ -16,6 +16,11 @@ export default (featureId, comment) => {
         },
       }
   };
+
+
+  featureId = getDefaultPrefix()
+    ? getDefaultPrefix() + featureId
+    : featureId;
 
   aha.send({
     apiUrl: `/features/${featureId}/comments`,

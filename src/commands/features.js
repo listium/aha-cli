@@ -1,6 +1,6 @@
 import AhaClient from '../AhaClient';
 import Table from 'easy-table';
-import {getUsername} from './login';
+import {getUsername, getDefaultPrefix} from './login';
 
 export default (releaseId, command) => {
 
@@ -48,7 +48,10 @@ export default (releaseId, command) => {
 
     console.log('Requesting features for', releaseId);
 
-    // Lookuip release id
+    releaseId = getDefaultPrefix()
+      ? getDefaultPrefix() + releaseId
+      : releaseId;
+
     aha.send({
       apiUrl: `/releases/${releaseId}/features`,
       renderer: (body) => {

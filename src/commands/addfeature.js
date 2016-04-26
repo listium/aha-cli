@@ -1,5 +1,5 @@
 import AhaClient from '../AhaClient';
-import {getUsername, getDefaultReleasePrefix} from './login';
+import {getUsername, getDefaultPrefix} from './login';
 
 export default (releaseId, featureName, workflowKind, workflowStatus,
   assignedToUser) => {
@@ -20,9 +20,11 @@ export default (releaseId, featureName, workflowKind, workflowStatus,
     }
   };
 
-  releaseId = getDefaultReleasePrefix()
-    ? getDefaultReleasePrefix() + releaseId
+  releaseId = getDefaultPrefix()
+    ? getDefaultPrefix() + releaseId
     : releaseId;
+
+  console.log(releaseId, getDefaultPrefix())
 
   aha.send({
     apiUrl: `/releases/${releaseId}/features`,

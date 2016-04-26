@@ -1,4 +1,5 @@
 import AhaClient from '../AhaClient';
+import {getDefaultPrefix} from './login';
 
 export default (featureId, workflowStatus) => {
 
@@ -10,6 +11,10 @@ export default (featureId, workflowStatus) => {
   const data = {
       "workflow_status": workflowStatus || "Ready for testing"
   };
+
+  featureId = getDefaultPrefix()
+    ? getDefaultPrefix() + featureId
+    : featureId;
 
   aha.send({
     apiUrl: `/features/${featureId}`,

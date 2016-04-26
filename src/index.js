@@ -24,6 +24,7 @@ program
 
 program
   .command('releases [productId]')
+  .option('-s, --search [search]', 'Search for text in release names')
   .description('Get a list of releases for a product')
   .action(releases)
 

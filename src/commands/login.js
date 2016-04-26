@@ -42,7 +42,7 @@ export const getUsername = () => {
   return ahaConfig.username;
 }
 // CORE-R-111
-export const getDefaultReleasePrefix = () => {
+export const getDefaultPrefix = () => {
   let ahaConfig = {};
 
   if (fs.existsSync(ahaFile)) {
@@ -50,6 +50,6 @@ export const getDefaultReleasePrefix = () => {
   }
 
   return ahaConfig.defaultProduct
-    ? ahaConfig.defaultProduct + '-R-'
+    ? ahaConfig.defaultProduct + '-'
     : false;
 }
